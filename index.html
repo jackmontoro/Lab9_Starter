@@ -69,21 +69,21 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button onclick="consoleLog()">Console Log</button>
+      <button onclick="consoleError()">Console Error</button>
+      <button onclick="consoleCount()">Console Count</button>
+      <button onclick="consoleWarn()">Console Warn</button>
+      <button onclick="consoleAssert()">Console Assert</button>
+      <button onclick="consoleClear()">Console Clear</button>
+      <button onclick="consoleDir()"> Console Dir</button>
+      <button onclick="consoleDirxml()">Console dirxml</button>
+      <button onclick="consoleGroupStart()">Console Group Start</button>
+      <button onclick="consoleGroupEnd()">Console Group End</button>
+      <button onclick="consoleTable()">Console Table</button>
+      <button onclick="startTimer()">Start Timer</button>
+      <button onclick="endTimer()">End Timer</button>
+      <button onclick="consoleTrace()">Console Trace</button>
+      <button onclick="globalErrorTrigger()">Trigger a Global Error</button>
     </section>
   </main>
 
@@ -102,6 +102,69 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    // Step 2
+    function consoleLog() {
+      console.log("Test Console Logging");
+    }
+    function consoleError() {
+      console.error("Test Console Error");
+    }
+    function consoleCount() {
+      console.count("Test Count");
+    }
+    function consoleWarn() {
+      console.warn("Test Console Warning");
+    }
+    function consoleAssert() {
+      let assertion = true;
+      console.assert(!assertion, "Test Assertion Not False");
+    }
+    function consoleClear() {
+      console.clear();
+    }
+    function consoleDir() {
+      console.dir(errorBtns[6]);
+    }
+    function consoleDirxml(){
+      console.dirxml(errorBtns[7]);
+    }
+    function consoleGroupStart() {
+      console.group();
+    }
+    function consoleGroupEnd() {
+      console.groupEnd();
+    }
+    function consoleTable() {
+      console.table(errorBtns);
+    }
+    function startTimer() {
+      console.time();
+    }
+    function endTimer() {
+      console.timeEnd();
+    }
+    function consoleTrace() {
+      console.trace();
+    }
+
+    function valEven(value) {
+      if(typeof(value) != "number") {
+        throw new Error("Value is not a number!");
+      }
+      return value % 2 == 0;
+    }
+    
+    // Step 3
+    try {
+      valEven("four");
+    }
+    catch(err) {
+      console.log("valEven produced an error.");
+    }
+    finally {
+      console.log("End of message");
+    }
   </script>
 </body>
 
