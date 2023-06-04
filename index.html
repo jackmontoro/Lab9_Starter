@@ -87,6 +87,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+    token: "4c9f64feef404ad6aac450482f360149"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+                        
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -156,6 +164,9 @@
     }
     
     // Step 3
+
+    TrackJS.track('Testing TrackJS!');
+                        
     try {
       valEven("four");
     }
@@ -185,6 +196,11 @@
         throw new valError("Value is not odd");
       }
       return true;
+    }
+
+    // Step 5
+    function globalErrorTrigger() {
+      valEven("purple");
     }
   </script>
 </body>
