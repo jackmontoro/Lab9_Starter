@@ -165,6 +165,27 @@
     finally {
       console.log("End of message");
     }
+
+    // Step 4
+    class valError extends Error{
+      constructor(inputMessage){
+        this.message = inputMessage;
+        this.name = "ValueError";
+      }
+    }
+
+    function isOddNumber(value) {
+      let valType = typeof(value);
+      let valNum = valType == "number";
+
+      if(!valNum) {
+        throw new valError("Value is not a number");
+      }
+      if(valNum && value % 2 == 0){
+        throw new valError("Value is not odd");
+      }
+      return true;
+    }
   </script>
 </body>
 
